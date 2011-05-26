@@ -36,7 +36,7 @@ set wildmode=list:longest,full
 set mouse=a         	" Enable the use of the mouse
 
 "" Tab stuff
-set noexpandtab         " don't insert spaces instead of tabs
+""set noexpandtab         " don't insert spaces instead of tabs
 set tabstop=4           " tabs appear as n number of columns
 set shiftwidth=4        " n cols for auto-indenting
 set autoindent          " auto indents next new line

@@ -23,7 +23,6 @@ static const Rule rules[] = {
 	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
 	{ "Filezilla",  NULL,       NULL,       1 << 2,       False,       -1 },
 	{ "Pidgin",  NULL,       NULL,       1 << 3,       False,       -1 },
-	{ "Google-Chrome",  NULL,       NULL,       1 << 3,       False,       -1 },
 };
 
 /* layout(s) */
@@ -33,7 +32,7 @@ static const Bool resizehints = False; /* True means respect size hints in tiled
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "<><",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
 
