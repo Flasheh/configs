@@ -1,0 +1,51 @@
+#                                            #
+##              ncmpcpp config              ##
+###                                        ###
+#### ~ created by Flasheh                 ####
+##############################################
+
+##############################################
+##						 mpd settings									##
+##############################################
+
+mpd_host = "127.0.0.1"
+mpd_port = "6600"
+mpd_music_dir = "~/music/mpd"
+
+##############################################
+##						    Layout	     							##
+##############################################
+
+song_columns_list_format = "(5f)[yellow]{l} (33)[cyan]{t} (32)[green]{a} (30)[magenta]{b}"
+now_playing_prefix = "  $b$2»$2»$2»   "
+now_playing_suffix = "$/b"
+playlist_display_mode = "columns" (classic/columns)
+autocenter_mode = "yes"
+centered_cursor = "yes"
+song_status_format = "$7%t $1• $3%a $1•{ $6%b $1• }$4%y $1• {$2%g}"
+progressbar_look = "─╼╌"
+titles_visibility = "no"
+browser_playlist_prefix = "$2plist »$9 "
+browser_display_mode = "columns" (classic/columns)
+song_window_title_format = "MPD: {%a - }{%t}{ [%b{ Disc %d}]}|{%f}"
+search_engine_display_mode = "columns" (classic/columns)
+follow_now_playing_lyrics = "yes"
+display_screens_numbers_on_start = "no"
+playlist_disable_highlight_delay = "1"
+
+##############################################
+##						 			Colors									##
+##############################################
+
+colors_enabled = "yes"
+header_window_color = "blue"
+volume_color = "green"
+state_line_color = "white"
+state_flags_color = "blue"
+main_window_color = "blue"
+color1 = "cyan"
+color2 = "white"
+main_window_highlight_color = "blue"
+progressbar_color = "white"
+statusbar_color = "cyan" 
+active_column_color = "cyan"
