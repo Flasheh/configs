@@ -28,6 +28,7 @@ alias pacsearch="pacman -Sl | cut -d' ' -f2 | grep "
 alias pacup="sudo pacman-color -Syu"
 alias gitadd="github && cd ~/github && git add . && git commit -m"
 alias gitup="git push -u origin"
+alias mpd="mpd ~/.mpd/mpd.conf"
 
 ##############################################
 ###############Terminal visuals###############
