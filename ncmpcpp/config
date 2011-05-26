@@ -34,7 +34,7 @@ display_screens_numbers_on_start = "no"
 playlist_disable_highlight_delay = "1"
 
 ##############################################
-##						 			Colors									##
+##					Colors   				##
 ##############################################
 
 colors_enabled = "yes"
