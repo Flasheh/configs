@@ -26,7 +26,7 @@ alias ...="cd ../.."
 alias urxvt='urxvtc'
 alias pacsearch="pacman -Sl | cut -d' ' -f2 | grep "
 alias pacup="sudo pacman-color -Syu"
-alias gitadd="cd ~/github && git add . && git commit -m"
+alias gitadd="github && cd ~/github && git add . && git commit -m"
 alias gitup="git push -u origin"
 
 ##############################################
