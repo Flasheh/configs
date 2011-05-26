@@ -8,7 +8,7 @@
 [ -z "$PS1" ] && return
 
 ##############################################
-##                  Aliases                 ##
+###################Aliases####################
 ##############################################
 
 alias pacman="sudo pacman-color"
@@ -30,9 +30,9 @@ alias gitadd="github && cd ~/github && git add . && git commit -m"
 alias gitup="git push -u origin"
 
 ##############################################
-##             Terminal visuals             ##
+###############Terminal visuals###############
 ##############################################
-##  This gives: 'user@hostname' dir [:)] >  ##
+####This gives: 'user@hostname' dir [:)] >####
 ##############################################
 
 PS1="\[\e[01;39m\]'\u\[\e[01;30m\]@\[\e[01;39m\]\h' \[\e[01;30m\]\W \`
@@ -46,7 +46,7 @@ cowsay -f sodomized.cow Life was like a box of chocolates, you never know what y
 echo
 
 ##############################################
-##            Other functions               ##
+##############Other functions#################
 ##############################################
 
 ## Completion
