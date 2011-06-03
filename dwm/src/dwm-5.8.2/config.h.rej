@@ -1,0 +1,11 @@
+--- config.def.h	2011-03-07 01:16:44.633664829 +0000
++++ config.def.h	2011-03-07 01:15:30.334698546 +0000
+@@ -10,7 +10,7 @@
+    { "#ff0000", "#ffffff", "#ff0000" },  // 3 = error
+    // add more here
+ };
+-static const char font[]            = "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*";
++static const char font[]            = "Sans 8";
+ static const unsigned int borderpx  = 1;        /* border pixel of windows */
+ static const unsigned int snap      = 32;       /* snap pixel */
+ static const Bool showbar           = True;     /* False means no bar */

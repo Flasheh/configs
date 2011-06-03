@@ -38,12 +38,3 @@ build() {
   install -m644 -D README $pkgdir/usr/share/doc/$pkgname/README
   install -m644 -D $srcdir/dwm.desktop $pkgdir//etc/X11/sessions/dwm.desktop
 }
-md5sums=('f0b422bfeaa812d66c6dd15c3cc92a6b'
-         'f80010a1630762291f02d699cd3bc1f7'
-         '939f403a71b6e85261d09fc3412269ee')
-md5sums=('f0b422bfeaa812d66c6dd15c3cc92a6b'
-         'f80010a1630762291f02d699cd3bc1f7'
-         '939f403a71b6e85261d09fc3412269ee')
-md5sums=('f0b422bfeaa812d66c6dd15c3cc92a6b'
-         '14c474dbe77ab6021436ea5547c25282'
-         '939f403a71b6e85261d09fc3412269ee')

@@ -4,8 +4,8 @@
 #define NUMCOLORS         4             // need at least 3
 static const char colors[NUMCOLORS][ColLast][8] = {
    // border   foreground  background
-   { "#121212", "#cccccc", "#121212" },  // 0 = normal
-   { "#cccccc", "#121212", "#cccccc" },  // 1 = selected
+   { "#cccccc", "#000000", "#cccccc" },  // 0 = normal
+   { "#0066ff", "#ffffff", "#0066ff" },  // 1 = selected
    { "#0066ff", "#0066ff", "#ffffff" },  // 2 = urgent/warning
    { "#ff0000", "#ffffff", "#ff0000" },  // 3 = error
    // add more here
@@ -39,7 +39,7 @@ static const Bool resizehints   = True; /* True means respect size hints in tile
 
 static const Layout layouts[] = {
 	/* symbol add gaps  arrange function */
-	{ "=]",  True,     ntile   },    /* first entry is default */
+	{ "=2]",  True,     ntile   },    /* first entry is default */
 	{ "><>",  False,    NULL    },    /* no layout function means floating behavior */
 	{ "[M]",  False,    monocle },
   { "T2T",  True,     nbstack },
@@ -48,13 +48,15 @@ static const Layout layouts[] = {
 /* tagging */
 static const Tag tags[] = {
   /* name       layout        mfact   nmaster */
-  { "[term]",     &layouts[0],  -1,     -1 },
-  { "[web]",      &layouts[2],  -1,     -1 },
-  { "[irc/music]",      &layouts[0],  -1,      1 },
-  { "[im]",       &layouts[1],   0.75,  -1 },
-  { "[dl]",  		&layouts[0],  -1      -1 },
-  { "[media]",    &layouts[1],  -1      -1 },
-  { "[other]",    &layouts[0],  -1,     -1 },
+  { "term",     &layouts[0],  -1,     -1 },
+  { "web",      &layouts[2],  -1,     -1 },
+  { "dev",      &layouts[1],  -1,      1 },
+  { "im",       &layouts[1],   0.75,  -1 },
+  { "pdf",      &layouts[2],  -1,     -1 },
+  { "other",    &layouts[0],  -1,     -1 },
+  { "torrent",  &layouts[2],  -1      -1 },
+  { "media",    &layouts[1],  -1      -1 },
+  { "full",     &layouts[2],  -1      -1 },
 };
 
 /* key definitions */
@@ -72,17 +74,13 @@ static const Tag tags[] = {
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG],"-sb", colors[1][ColBG], "-sf", colors[1][ColFG], NULL };
 static const char *termcmd[]  = { "uxterm", NULL };
 
-#include "push.c"
-
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-/*	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },*/
-	{ MODKEY|ControlMask,           XK_j,      pushdown,       {0} },
-    { MODKEY|ControlMask,           XK_k,      pushup,         {0} },
-/*	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },*/
+	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },

@@ -20,7 +20,7 @@ fi
 xrdb -load ~/.Xdefaults
 
 ## Set Wallpaper
-feh --bg-scale ~/wallpapers/snake.png &
+feh --bg-scale ~/wallpapers/q-base.png &
 
 ## Font db update
 xset +fp /usr/share/fonts/local
@@ -29,11 +29,20 @@ xset fp rehash
 ## Urxvt Daemon
 urxvtd -q -o -f
 
+## Start xbindkeys, for multimedia keys
+xbindkeys &
+
 ## Time to blast some music through my speakers 
 mpd ~/.mpd/mpd.conf
 
 ## Add favourites to front of dmenu
 dmenuadd
+
+## Add time to statusbar
+while true; do
+   xsetroot -name "$( date +"%F %R" )"
+   sleep 1m    # Update time every minute
+done &
 
 ## Start this shit up. default: dwm
 DEFAULT_SESSION=startdwm
