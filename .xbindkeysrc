@@ -1,3 +1,9 @@
+#                                            #
+##              .xbindkeys                  ##
+###                                        ###
+#### ~ created by Flasheh                 ####
+##############################################
+
 ## Play
 "ncmpcpp play"
 	 m:0x10 + c:179
