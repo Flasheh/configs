@@ -38,10 +38,11 @@ mpd ~/.mpd/mpd.conf
 ## Add favourites to front of dmenu
 dmenuadd
 
-## Add time to statusbar
-while true; do
-   xsetroot -name "$( date +"%F %R" )"
-   sleep 1m    # Update time every minute
+## Add time & vol to statusbar
+while true; 
+do
+	xsetroot -name "Vol. $(amixer get Master | tail -1 | awk '{ print $5}' | tr -d '[]') | $(date +"%a, %b %d %R")"
+	sleep 1s
 done &
 
 ## Start this shit up. default: dwm

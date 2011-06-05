@@ -20,7 +20,7 @@ URxvt*urgentOnBell: true
 
 ## URL stuff
 URxvt.perl-ext-common:      default,matcher
-URxvt.urlLauncher:   /usr/bin/chromium-dev
+URxvt.urlLauncher:   /usr/bin/iron
 URxvt.matcher.button:: 1
 #URxvt.underlineURLs: true
 URxvt.matcher.rend.0: fg16 RS_Uline

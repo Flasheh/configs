@@ -27,6 +27,11 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
+	{ "Pidgin",  NULL,       NULL,       1 << 3,       True,       -1 },
+	{ "Filezilla",  NULL,       NULL,      1 << 4,       False,       -1 },
+	{ "Iron",  NULL,       NULL,       1 << 1,       False,       -1 },
+	{ "LibreOffice",  NULL,       NULL,       1 << 6,       False,       -1 },
+	{ "MPlayer",  NULL,       NULL,       1 << 5,       True,       -1 },
 };
 
 /* layout(s) */
