@@ -53,3 +53,8 @@
 "killall startdwm"
     m:0x10 + c:180
     Mod2 + XF86HomePage
+
+## Shutdown
+"sudo shutdown -h now"
+    m:0x10 + c:150
+    Mod2 + XF86Sleep

@@ -49,11 +49,11 @@ static const Layout layouts[] = {
 static const Tag tags[] = {
   /* name       layout        mfact   nmaster */
   { "[term]",     &layouts[0],  -1,     -1 },
-  { "[web]",      &layouts[2],  -1,     -1 },
-  { "[irc/music]",      &layouts[0],  -1,      1 },
-  { "[im]",       &layouts[1],   0.75,  -1 },
-  { "[dl]",  		&layouts[0],  -1      -1 },
-  { "[media]",    &layouts[1],  -1      -1 },
+  { "[web]",      &layouts[2],  -1,      1 },
+  { "[irc/music]",&layouts[0], 	-1,      1 },
+  { "[im]",       &layouts[1],  0.75,   -1 },
+  { "[dl]",  	  &layouts[0],  -1,     -1 },
+  { "[media]",    &layouts[1],  -1,     -1 },
   { "[other]",    &layouts[0],  -1,     -1 },
 };
 
@@ -70,7 +70,7 @@ static const Tag tags[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG],"-sb", colors[1][ColBG], "-sf", colors[1][ColFG], NULL };
-static const char *termcmd[]  = { "uxterm", NULL };
+static const char *termcmd[]  = { "urxvtc", NULL };
 
 #include "push.c"
 
