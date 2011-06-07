@@ -25,10 +25,11 @@ alias ..="cd .."y
 alias ...="cd ../.."
 alias urxvt='urxvtc'
 alias pacsearch="pacman -Sl | cut -d' ' -f2 | grep "
-alias pacup="sudo pacman-color -Syu"
+alias pacup="sudo pacman-color -Syu && pacdb"
 alias gitadd="github && cd ~/github && git add . && git commit -m"
 alias gitup="git push -u origin"
 alias mpd="mpd ~/.mpd/mpd.conf"
+alias pacdb="sh /etc/cron.hourly/pacsync"
 
 ##############################################
 ############## Terminal visuals ##############

@@ -20,7 +20,7 @@ fi
 xrdb -load ~/.Xdefaults
 
 ## Set Wallpaper
-feh --bg-scale ~/wallpapers/q-base.png &
+feh --bg-scale ~/wallpapers/wallpaper-875318.jpg &
 
 ## Font db update
 xset +fp /usr/share/fonts/local
@@ -39,11 +39,14 @@ mpd ~/.mpd/mpd.conf
 dmenuadd
 
 ## Add time & vol to statusbar
-while true; 
-do
-	xsetroot -name "Vol. $(amixer get Master | tail -1 | awk '{ print $5}' | tr -d '[]') | $(date +"%a, %b %d %R")"
-	sleep 1s
-done &
+#while true; 
+#do
+#	xsetroot -name "Vol. $(amixer get Master | tail -1 | awk '{ print $5}' | tr -d '[]') | $(date +"%a, %b %d %R")"
+#	sleep 1s
+#done &
+
+## Add conky to statusbar
+conky | while read -r; do xsetroot -name "$REPLY"; done &
 
 ## Start this shit up. default: dwm
 DEFAULT_SESSION=startdwm
