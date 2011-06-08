@@ -1,0 +1,16 @@
+#                                            #
+##                .conkyrc                  ##
+###                                        ###
+#### ~ created by Flasheh                 ####
+##############################################
+
+out_to_console yes
+out_to_x no
+background no
+update_interval 2
+total_run_times 0
+use_spacer none
+
+TEXT
+| $mpd_smart | ${exec ~/scripts/pkg_to_up.sh} | ${loadavg 1} | ${downspeed eth0}/s / ${upspeed eth0}/s | ${time %a %b %d %I:%M%P}
+
