@@ -23,6 +23,7 @@ alias h="cd ~"
 alias home="cd ~"
 alias ..="cd .."y
 alias ...="cd ../.."
+alias ....="cd ../../.."
 alias urxvt='urxvtc'
 alias pacsearch="pacman -Sl | cut -d' ' -f2 | grep "
 alias pacup="sudo pacman-color -Syu && pacdb"
