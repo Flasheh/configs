@@ -1,11 +1,12 @@
 #!/bin/bash
-# Status script for dwm
 
+## Show RAM: xxx MB
 mem(){
 	mem="$(awk '/Mem/ {print $3}' <(free -m))"
 	echo -e "\x03RAM:\x08$mem MB\x01"
 }
 
+## Show CPU: x%
 cpu(){
 	cpu="$(eval $(awk '/^cpu /{print "previdle=" $5 "; prevtotal=" $2+$3+$4+$5 }' /proc/stat); sleep 0.4; 
 	eval $(awk '/^cpu /{print "idle=" $5 "; total=" $2+$3+$4+$5 }' /proc/stat); 
@@ -14,6 +15,7 @@ cpu(){
 	echo -e "\x06CPU:\x08$cpu%\x01"
 }
 
+## Show music now playing or paused when music is off
 mpd(){
 	mpd="$(mpc current)"
 if [ $mpd == ""];then
@@ -23,6 +25,7 @@ else
 fi
 }
 
+## Show x pkg's to update (PM: x | AUR: x )
 pac(){
 
 fakedb=/dev/shm/fakepacdb
@@ -58,15 +61,18 @@ else
 fi
 }
 
+## Show date Dayname Month Day hh:mm pm/am 
 dte(){
 	dte="$(date "+%a %b %d %I:%M%P")"
 	echo -e "\x07$dte\x01"
 }
 
+## Show Down xxKB/s UP: xxKB/s
 net(){
 	netdown=$(cat /dev/shm/netdown.txt)
 	netup=$(cat /dev/shm/netup.txt)
 	echo -e "\x04DOWN:\x08$netdown\x04UP:\x08$netup\x01"
 }
 
+## Put it in statusbar beween brackets
 xsetroot -name "[$(mpd)] [$(pac)] [$(mem) $(cpu)] [$(net)] [$(dte)] "
