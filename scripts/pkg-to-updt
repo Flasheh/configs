@@ -1,0 +1,34 @@
+#!/bin/bash
+
+fakedb=/dev/shm/fakepacdb
+source ~/scripts/aursync
+
+pkgs=$(pacman --dbpath "$fakedb" -Qqu | wc -l)
+
+unset msg1
+unset msg2
+unset packages
+
+if [[ ${pkgs} -gt 0 ]]; 
+then
+	msg1="PM: ${pkgs}"
+else
+	msg1="PM: 0"
+fi 
+
+if [[ ${aurdb} -gt 0 ]]; 
+then
+	msg2="AUR: ${aurdb}"
+else
+	msg2="AUR: 0"
+fi 
+
+let packages=${pkgs}+${aurdb}
+
+if [[ ${packages} -gt 0 ]]; 
+then
+	echo "${packages} pkg's to update (${msg1} | ${msg2})"
+else
+	echo "0 pkg's to update"
+fi
+

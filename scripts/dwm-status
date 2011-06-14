@@ -1,0 +1,72 @@
+#!/bin/bash
+# Status script for dwm
+
+mem(){
+	mem="$(awk '/Mem/ {print $3}' <(free -m))"
+	echo -e "\x03RAM:\x08$mem MB\x01"
+}
+
+cpu(){
+	cpu="$(eval $(awk '/^cpu /{print "previdle=" $5 "; prevtotal=" $2+$3+$4+$5 }' /proc/stat); sleep 0.4; 
+	eval $(awk '/^cpu /{print "idle=" $5 "; total=" $2+$3+$4+$5 }' /proc/stat); 
+	intervaltotal=$((total-${prevtotal:-0})); 
+	echo "$((100*( (intervaltotal) - ($idle-${previdle:-0}) ) / (intervaltotal) ))")"
+	echo -e "\x06CPU:\x08$cpu%\x01"
+}
+
+mpd(){
+	mpd="$(mpc current)"
+if [ $mpd == ""];then
+	echo -e "\x04Music is paused.\x01"
+else
+	echo -e "\x04$mpd\x01"
+fi
+}
+
+pac(){
+
+fakedb=/dev/shm/fakepacdb
+source ~/scripts/aursync
+
+pkgs=$(pacman --dbpath "$fakedb" -Qqu | wc -l)
+
+unset msg1
+unset msg2
+unset packages
+
+if [[ ${pkgs} -gt 0 ]]; 
+then
+	msg1="PM: ${pkgs}"
+else
+	msg1="PM: 0"
+fi 
+
+if [[ ${aurdb} -gt 0 ]]; 
+then
+	msg2="AUR: ${aurdb}"
+else
+	msg2="AUR: 0"
+fi 
+
+let packages=${pkgs}+${aurdb}
+
+if [[ ${packages} -gt 0 ]]; 
+then
+	echo -e "\x05${packages} pkg's to update\x01\x05(\x08${msg1}\x05|\x08${msg2}\x05)\x01"
+else
+	echo -e "\x050 pkg's to update\x01"
+fi
+}
+
+dte(){
+	dte="$(date "+%a %b %d %I:%M%P")"
+	echo -e "\x07$dte\x01"
+}
+
+net(){
+	netdown=$(cat /dev/shm/netdown.txt)
+	netup=$(cat /dev/shm/netup.txt)
+	echo -e "\x04DOWN:\x08$netdown\x04UP:\x08$netup\x01"
+}
+
+xsetroot -name "[$(mpd)] [$(pac)] [$(mem) $(cpu)] [$(net)] [$(dte)] "

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+while true; do
+    ~/scripts/dwm-status
+    sleep 2s
+done &
+
+while true; do
+    # Log stderror to a file 
+	dwm > /dev/null
+done

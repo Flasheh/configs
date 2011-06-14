@@ -50,8 +50,8 @@ static const Layout layouts[] = {
 static const Tag tags[] = {
   /* name       layout        mfact   nmaster */
   { "[term]",     &layouts[0],  -1,     -1 },
-  { "[web]",      &layouts[2],  -1,      1 },
-  { "[irc/music]",&layouts[0], 	-1,      1 },
+  { "[web]",      &layouts[1],  -1,      1 },
+  { "[irc/music]",&layouts[0], 	-1,     -1 },
   { "[im]",       &layouts[1],  0.75,   -1 },
   { "[dl]",  	  &layouts[0],  -1,     -1 },
   { "[media]",    &layouts[1],  -1,     -1 },

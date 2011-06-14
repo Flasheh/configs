@@ -1,0 +1,10 @@
+#!/bin/bash 
+rm ~/.dmenu_cache &&
+dmenu_path > /dev/null && # create list
+sed -i '1ipidgin' ~/.dmenu_cache && # add entries to beginning
+sed -i '1igftp' ~/.dmenu_cache &&
+sed -i '1iaudacious' ~/.dmenu_cache &&
+sed -i '1ifilezilla' ~/.dmenu_cache &&
+sed -i '1ichromium' ~/.dmenu_cache &&
+sed -i '1iiron' ~/.dmenu_cache &&
+sed -i '1iurxvtc' ~/.dmenu_cache
