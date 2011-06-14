@@ -14,5 +14,4 @@ use_spacer none
 ## example: | Above & Beyond Feat Richard Bedford - Sun & Moon | 1 pkg's to update (1 in PM | 0 in AUR) | 0.07 | 72B/s / 32B/s | Wed Jun 08 10:30am
 
 TEXT
-| $mpd_smart | ${exec ~/scripts/pkg_to_up.sh} | ${loadavg 1} | ${downspeed eth0}/s / ${upspeed eth0}/s | ${time %a %b %d %I:%M%P}
-
+| $mpd_smart | ${exec ~/scripts/pkg-to-updt} | ${loadavg 1} | ${downspeed eth0}/s / ${upspeed eth0}/s | ${time %a %b %d %I:%M%P}

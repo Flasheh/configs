@@ -1,1 +1,0 @@
-/home/flash/dwm/config.h

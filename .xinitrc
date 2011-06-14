@@ -36,20 +36,16 @@ xbindkeys &
 mpd ~/.mpd/mpd.conf
 
 ## Add favourites to front of dmenu
-dmenuadd
+~/scripts/dmenuadd
 
-## Add time & vol to statusbar
-#while true; 
-#do
-#	xsetroot -name "Vol. $(amixer get Master | tail -1 | awk '{ print $5}' | tr -d '[]') | $(date +"%a, %b %d %R")"
-#	sleep 1s
-#done &
+## Start netspeed script for statusbar
+~/scripts/netspeed eth0 &
 
 ## Add conky to statusbar
-conky | while read -r; do xsetroot -name "$REPLY"; done &
+#conky | while read -r; do xsetroot -name "$REPLY"; done &
 
 ## Start this shit up. default: dwm
-DEFAULT_SESSION=startdwm
+DEFAULT_SESSION=~/scripts/startdwm
 case $1 in
 openbox)
 	exec openbox-session

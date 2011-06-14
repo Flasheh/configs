@@ -1,25 +1,21 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-#define NUMCOLORS         4             // need at least 3
+#define NUMCOLORS         8             // need at least 3
 static const char colors[NUMCOLORS][ColLast][8] = {
    // border   foreground  background
-   { "#121212", "#cccccc", "#121212" },  // 0 = normal
-   { "#cccccc", "#121212", "#cccccc" },  // 1 = selected
-   { "#0066ff", "#0066ff", "#ffffff" },  // 2 = urgent/warning
-   { "#ff0000", "#ffffff", "#ff0000" },  // 3 = error
-   // add more here
+	{ "#121212", "#cccccc", "#121212" }, // 0 = normal
+	{ "#cccccc", "#121212", "#cccccc" }, // 1 = selected
+	{ "#212121", "#CF4F88", "#121212" }, // 2 = red
+	{ "#212121", "#53A6A6", "#121212" }, // 3 = green
+	{ "#212121", "#BF85CC", "#121212" }, // 4 = yellow
+	{ "#212121", "#4D9CD5", "#121212" }, // 5 = cyan
+	{ "#212121", "#17ADCE", "#121212" }, // 6 = magenta
+	{ "#212121", "#C0C0C0", "#121212" }, // 7 = white
 };
-/*static const char font[]            = "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*";*/
 static const char font[]            = "-*-tamsyn-medium-*-*-*-17-*-*-*-*-*-iso8859-*";
-/*static const char normbordercolor[] = "#121212";
-static const char normbgcolor[]     = "#999999";
-static const char normfgcolor[]     = "#E6E6E6";
-static const char selbordercolor[]  = "#121212";
-static const char selbgcolor[]      = "#121212";
-static const char selfgcolor[]      = "#E6E6E6";*/
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int snap      = 4;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 

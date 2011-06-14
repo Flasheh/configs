@@ -13,7 +13,7 @@
 
 alias pacman="sudo pacman-color"
 alias ls="ls --color=auto"
-alias crossftp="sh crossftp/crossftp.sh"
+alias crossftp="sh ~/builds/crossftp/crossftp.sh"
 alias xmplayer="echo -ne '\033]0;'mplayer'\007'; mplayer -zoom -vo x11 -wid `xwininfo -id $WINDOWID -tree | tail -n 2 | grep -oP '0x[0-9a-f]+ '`"
 alias reboot='sudo shutdown -r now'
 alias halt='sudo shutdown -h now'
@@ -27,7 +27,7 @@ alias ....="cd ../../.."
 alias urxvt='urxvtc'
 alias pacsearch="pacman -Sl | cut -d' ' -f2 | grep "
 alias pacup="sudo pacman-color -Syu && pacdb"
-alias gitadd="github && cd ~/github && git add . && git commit -m"
+alias gitadd="~/scripts/github && cd ~/github && git add . && git commit -m"
 alias gitup="git push -u origin"
 alias mpd="mpd ~/.mpd/mpd.conf"
 alias pacdb="sh /etc/cron.hourly/pacsync"
@@ -58,6 +58,7 @@ complete -cf man
 
 ## Apps
 export EDITOR="vim"
+export TERM="rxvt-256color"
 
 ## Enhance colored ls output
 eval $(dircolors -b)
