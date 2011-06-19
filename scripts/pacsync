@@ -1,0 +1,20 @@
+#!/bin/bash
+
+fakedb=/dev/shm/fakepacdb
+realdb=/var/lib/pacman
+
+if [ -d $fakedb ];
+then
+	echo > /dev/null
+else
+	mkdir -p "$fakedb/sync"
+fi
+
+if [ -L $fakedb/local ];
+then
+	echo > /dev/null
+else
+	ln -s "$realdb/local" "$fakedb"
+fi
+
+exec fakeroot pacman --dbpath "$fakedb" -Sy 

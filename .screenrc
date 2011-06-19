@@ -4,5 +4,7 @@
 #### ~ created by Flasheh                 ####
 ##############################################
 
-term rxvt-256color
-terminfo rxvt-256color
+startup_message off
+termcapinfo rxvt-unicode ti@:te@
+terminfo rxvt-unicode ti@:te@:
+term screen-256color

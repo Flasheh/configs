@@ -4,8 +4,8 @@
 #define NUMCOLORS         8             // need at least 3
 static const char colors[NUMCOLORS][ColLast][8] = {
    // border   foreground  background
-	{ "#121212", "#cccccc", "#121212" }, // 0 = normal
-	{ "#cccccc", "#121212", "#cccccc" }, // 1 = selected
+	{ "#121212", "#999999", "#121212" }, // 0 = normal
+	{ "#cccccc", "#CCCCCC", "#121212" }, // 1 = selected
 	{ "#212121", "#CF4F88", "#121212" }, // 2 = red
 	{ "#212121", "#53A6A6", "#121212" }, // 3 = green
 	{ "#212121", "#BF85CC", "#121212" }, // 4 = yellow
@@ -18,6 +18,8 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 4;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
+static const Bool focusonclick      = False;     /* Change focus only on click */
+
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
@@ -49,13 +51,13 @@ static const Layout layouts[] = {
 /* tagging */
 static const Tag tags[] = {
   /* name       layout        mfact   nmaster */
-  { "[term]",     &layouts[0],  -1,     -1 },
-  { "[web]",      &layouts[1],  -1,      1 },
-  { "[irc/music]",&layouts[0], 	-1,     -1 },
-  { "[im]",       &layouts[1],  0.75,   -1 },
-  { "[dl]",  	  &layouts[0],  -1,     -1 },
-  { "[media]",    &layouts[1],  -1,     -1 },
-  { "[other]",    &layouts[0],  -1,     -1 },
+  { "term",     &layouts[0],  -1,     -1 },
+  { "web",      &layouts[1],  -1,      1 },
+  { "irc/music",&layouts[0], 	-1,     -1 },
+  { "im",       &layouts[1],  0.75,   -1 },
+  { "dl",  	  &layouts[0],  -1,     -1 },
+  { "media",    &layouts[1],  -1,     -1 },
+  { "other",    &layouts[0],  -1,     -1 },
 };
 
 /* key definitions */
@@ -80,10 +82,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-/*	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },*/
+	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY|ControlMask,           XK_j,      pushdown,       {0} },
     { MODKEY|ControlMask,           XK_k,      pushup,         {0} },
-/*	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },*/
+	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },

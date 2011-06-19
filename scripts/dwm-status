@@ -2,7 +2,7 @@
 
 ## Show RAM: xxx MB
 mem(){
-	mem="$(awk '/Mem/ {print $3}' <(free -m))"
+	mem="$(free -m | grep + | awk '{print $3}')"
 	echo -e "\x03RAM:\x08$mem MB\x01"
 }
 
@@ -29,8 +29,7 @@ fi
 pac(){
 
 fakedb=/dev/shm/fakepacdb
-source ~/scripts/aursync
-
+aurdb=$(cat /dev/shm/aur.txt)
 pkgs=$(pacman --dbpath "$fakedb" -Qqu | wc -l)
 
 unset msg1
