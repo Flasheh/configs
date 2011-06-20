@@ -34,6 +34,7 @@ alias dmenuadd="~/scripts/dmenuadd"
 alias mpd="mpd ~/.mpd/mpd.conf"
 alias pacdb="sudo /etc/cron.hourly/pacsync"
 alias makedwm="makepkg -efi --skipinteg"
+alias mprar="~/scripts/mprar"
 
 ##############################################
 ############## Terminal visuals ##############

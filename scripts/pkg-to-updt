@@ -1,9 +1,7 @@
 #!/bin/bash
 
-fakedb=/dev/shm/fakepacdb
-source ~/scripts/aursync
-
-pkgs=$(pacman --dbpath "$fakedb" -Qqu | wc -l)
+aurdb=$(cat /dev/shm/aur.txt)
+pkgs=$(pacman --dbpath "/dev/shm/fakepacdb" -Qqu | wc -l)
 
 unset msg1
 unset msg2
