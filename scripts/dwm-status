@@ -27,37 +27,10 @@ fi
 
 ## Show x pkg's to update (PM: x | AUR: x )
 pac(){
-
 fakedb=/dev/shm/fakepacdb
-aurdb=$(cat /dev/shm/aur.txt)
+aur=$(cat /dev/shm/aur.txt)
 pkgs=$(pacman --dbpath "$fakedb" -Qqu | wc -l)
-
-unset msg1
-unset msg2
-unset packages
-
-if [[ ${pkgs} -gt 0 ]]; 
-then
-	msg1="PM: ${pkgs}"
-else
-	msg1="PM: 0"
-fi 
-
-if [[ ${aurdb} -gt 0 ]]; 
-then
-	msg2="AUR: ${aurdb}"
-else
-	msg2="AUR: 0"
-fi 
-
-let packages=${pkgs}+${aurdb}
-
-if [[ ${packages} -gt 0 ]]; 
-then
-	echo -e "\x05${packages} pkg's to update\x01\x05(\x08${msg1}\x05|\x08${msg2}\x05)\x01"
-else
-	echo -e "\x050 pkg's to update\x01"
-fi
+	echo -e "\x05PAC:\x08${pkgs}\x05 AUR:\x08${aur}\x01"
 }
 
 ## Show date Dayname Month Day hh:mm pm/am 
