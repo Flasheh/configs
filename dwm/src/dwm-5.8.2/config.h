@@ -4,21 +4,20 @@
 #define NUMCOLORS         8             // need at least 3
 static const char colors[NUMCOLORS][ColLast][8] = {
    // border   foreground  background
-	{ "#121212", "#999999", "#121212" }, // 0 = normal
-	{ "#cccccc", "#CCCCCC", "#121212" }, // 1 = selected
-	{ "#212121", "#CF4F88", "#121212" }, // 2 = red
+	{ "#121212", "#CCCCCC", "#121212" }, // 0 = normal
+	{ "#999999", "#999999", "#121212" }, // 1 = selected
+	{ "#212121", "#CF4F88", "#121212" }, // 2 = red/urgent
 	{ "#212121", "#53A6A6", "#121212" }, // 3 = green
 	{ "#212121", "#BF85CC", "#121212" }, // 4 = yellow
 	{ "#212121", "#4D9CD5", "#121212" }, // 5 = cyan
 	{ "#212121", "#17ADCE", "#121212" }, // 6 = magenta
-	{ "#212121", "#C0C0C0", "#121212" }, // 7 = white
+	{ "#212121", "#999999", "#121212" }, // 7 = white
 };
 static const char font[]            = "-*-tamsyn-medium-*-*-*-17-*-*-*-*-*-iso8859-*";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 4;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
-static const Bool focusonclick      = False;     /* Change focus only on click */
 
 
 static const Rule rules[] = {

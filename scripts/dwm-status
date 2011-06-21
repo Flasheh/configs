@@ -1,50 +1,60 @@
 #!/bin/bash
 
-## Show RAM: xxx MB
+## Show 'RAM: xxx MB'
 mem(){
 	mem="$(free -m | grep + | awk '{print $3}')"
-	echo -e "\x03RAM:\x08$mem MB\x01"
+	echo -e "\x08[\x03RAM:\x01$mem MB"
 }
 
-## Show CPU: x%
+## Show 'CPU: x%'
 cpu(){
 	cpu="$(eval $(awk '/^cpu /{print "previdle=" $5 "; prevtotal=" $2+$3+$4+$5 }' /proc/stat); sleep 0.4; 
 	eval $(awk '/^cpu /{print "idle=" $5 "; total=" $2+$3+$4+$5 }' /proc/stat); 
 	intervaltotal=$((total-${prevtotal:-0})); 
 	echo "$((100*( (intervaltotal) - ($idle-${previdle:-0}) ) / (intervaltotal) ))")"
-	echo -e "\x06CPU:\x08$cpu%\x01"
+	echo -e "\x06CPU:\x01$cpu%\x08]"
 }
 
 ## Show music now playing or paused when music is off
 mpd(){
-	mpd="$(mpc current)"
+
+mpd="$(mpc current)"
+title="$(audtool current-song)"
+artist="$(audtool current-song-tuple-data artist)"
+
 if [ $mpd == ""];then
-	echo -e "\x04Music is paused.\x01"
+	if [ $artist == ""];
+	then
+		echo -e "\x08[\x04$title\x08]"
+	else
+		echo -e "\x08[\x04${artist} - ${title}\x08]"
+	fi
 else
-	echo -e "\x04$mpd\x01"
+	echo -e "\x08[\x04$mpd\x08]"
 fi
+
 }
 
-## Show x pkg's to update (PM: x | AUR: x )
+## Show 'PAC: x AUR: x'
 pac(){
 fakedb=/dev/shm/fakepacdb
 aur=$(cat /dev/shm/aur.txt)
 pkgs=$(pacman --dbpath "$fakedb" -Qqu | wc -l)
-	echo -e "\x05PAC:\x08${pkgs}\x05 AUR:\x08${aur}\x01"
+	echo -e "\x08[\x07PAC:\x01${pkgs}\x07 AUR:\x01${aur}\x08]"
 }
 
-## Show date Dayname Month Day hh:mm pm/am 
+## Show date 'Dayname Month Day hh:mm pm/am' 
 dte(){
 	dte="$(date "+%a %b %d %I:%M%P")"
-	echo -e "\x07$dte\x01"
+	echo -e "\x01$dte"
 }
 
-## Show Down xxKB/s UP: xxKB/s
+## Show 'Down xxKB/s UP: xxKB/s'
 net(){
 	netdown=$(cat /dev/shm/netdown.txt)
 	netup=$(cat /dev/shm/netup.txt)
-	echo -e "\x04DOWN:\x08$netdown\x04UP:\x08$netup\x01"
+	echo -e "\x08[\x04DOWN:\x01$netdown\x04UP:\x01$netup\x08]"
 }
 
 ## Put it in statusbar beween brackets
-xsetroot -name "[$(mpd)] [$(pac)] [$(mem) $(cpu)] [$(net)] [$(dte)] "
+xsetroot -name "$(mpd)$(pac)$(mem) $(cpu)$(net) |$(dte)"
