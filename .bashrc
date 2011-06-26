@@ -26,7 +26,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias urxvt='urxvtc'
 alias pacsearch="pacman -Sl | cut -d' ' -f2 | grep "
-alias pacup="sudo pacman-color -Syu && pacdb"
+alias pacup="sudo pacman-color -Syu && pacdb && aurdb"
 alias gitadd="~/scripts/github && cd ~/github && git add ."
 alias gitcom="git commit -m"
 alias gitup="git push -u origin"
@@ -35,6 +35,7 @@ alias mpd="mpd ~/.mpd/mpd.conf"
 alias pacdb="sudo /etc/cron.hourly/pacsync"
 alias makedwm="makepkg -efi --skipinteg"
 alias mprar="~/scripts/mprar"
+alias aurdb="sudo /etc/cron.hourly/aursync"
 
 ##############################################
 ############## Terminal visuals ##############

@@ -21,7 +21,7 @@ cpu(){
 ## Show music now playing or paused when music is off
 mpd(){
 
-mpd="$(mpc current)"
+mpd="$(mpc current | cut -d ':' -f 2 | sed 's/^ *//g')"
 title="$(audtool current-song)"
 artist="$(audtool current-song-tuple-data artist)"
 
@@ -33,7 +33,7 @@ if [ $mpd == ""];then
 		echo -e "\x04${artist} - ${title}"
 	fi
 else
-	echo -e "\x04$mpd" | head -c 75
+	echo -e "\x04$mpd"
 fi
 
 }
