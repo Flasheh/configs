@@ -26,7 +26,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias urxvt='urxvtc'
 alias pacsearch="pacman -Sl | cut -d' ' -f2 | grep "
-alias pacup="sudo pacman-color -Syu && pacdb && aurdb"
+alias pacup="yaourt -Syu --aur && pacdb && aurdb"
 alias gitadd="~/scripts/github && cd ~/github && git add ."
 alias gitcom="git commit -m"
 alias gitup="git push -u origin"
@@ -36,6 +36,11 @@ alias pacdb="sudo /etc/cron.hourly/pacsync"
 alias makedwm="makepkg -efi --skipinteg"
 alias mprar="~/scripts/mprar"
 alias aurdb="sudo /etc/cron.hourly/aursync"
+alias surm="sudo rm"
+alias sumv="sudo mv"
+alias sucp="sudo cp"
+alias suvim="sudo vim"
+alias sauerbraten="cd /opt/sauerbraten && ./bin/linux_client -w1920 -h1080 -t -q/home/flash/.config/sauerbraten -r"
 
 ##############################################
 ############## Terminal visuals ##############
