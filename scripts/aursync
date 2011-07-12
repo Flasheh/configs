@@ -1,2 +1,0 @@
-#!/bin/bash
-export aurdb=$(cower -udf 2> /dev/null | wc -l)
