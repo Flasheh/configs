@@ -21,7 +21,7 @@ alias diff='colordiff'
 alias grep='grep --color=auto'
 alias h="cd ~"
 alias home="cd ~"
-alias ..="cd .."y
+alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias urxvt='urxvtc'

@@ -28,7 +28,7 @@ artist="$(audtool current-song-tuple-data artist)"
 if [ ${mpd} == ""];then
 	if [ ${artist} == ""];
 	then
-		echo -e "\x04${title}"
+		echo -e "\x04No song playing."
 	else
 		echo -e "\x04${artist} - ${title}"
 	fi
